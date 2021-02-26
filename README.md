@@ -1,6 +1,5 @@
 ===============
 Getting Started
-===============
 1) Download gcc-arm-none-eabi cross compiler from developer.arm.com
 2) Download qemu-system-arm for quick testing purposes
 3) Copy code from OSdev page on raspberry pi barebones
@@ -9,7 +8,6 @@ Getting Started
 
 ================================
 Understanding the barebones code
-================================
 1) boot.S
     a) _start is where control is handed off from the bootloader to the kernel
     b) It sets up the stack pointer
@@ -38,7 +36,6 @@ Understanding the barebones code
 
 ========
 Building
-========
 1) Compiling boot.S
     a) -mcpu = cortex-a7: declare the exact model of arm cpu that is being targeted.  Note that this should be "arm1176jzf-s" if compiling for raspi version 1
     b) -fpic: generate position independent code. idk why its needed? maybe try removing?
@@ -58,7 +55,6 @@ Building
 
 =======================
 Setting up the Makefile
-=======================
 1) The kernel boots, but all of the files are scattered all over the place, and the makefile is not going to scale
 
 2) create build, src/kernel and include/kernel directories.  Put boot.S and kernel.c inside src/kernel, put makefile and linker into build
@@ -72,14 +68,12 @@ Setting up the Makefile
 
 ===========================
 Getting basic functionality
-===========================
 1) Since no stdlib, missing a lot of stuff
 
 2) We can just write a bunch of stdlib and stdio functions ourselves
 
 ==============
 Dynamic memory
-==============
 1) Having dynamic memory in the kernel is going to be useful, especially if we want dynamic linked list data structures
 2) Need to create a simple malloc and free implimentation
 3) First we need memory to allocate.  k
@@ -93,7 +87,6 @@ Dynamic memory
 
 ========
 HDMI OUT
-========
 1) UART is all well and good, if you have the appopriate setup
     a) Need a serial to usb/hdmi cable to actually use the setup as it stands right now
 2) I don't have an appropriate setup, need to enable hdmi and usb
@@ -128,7 +121,6 @@ HDMI OUT
 
 ==========
 Interrupts
-==========
 1) We want to do a usb keyboard, this requires hardware interrupts
 2) There are 3 kinds of hardware interrupts
     a) arm specific (aka basic)
